@@ -19,7 +19,7 @@ $( document ).ready(function() {
     success : function(data){
 
       $('select').change(function(){      //funzione cambio genere con la select
-
+        $('.cds-container').html('');
         $('select option:selected').each(function(){
 
 
@@ -35,6 +35,7 @@ $( document ).ready(function() {
           var source = $("#template").html();
           var template = Handlebars.compile(source); //compila Handlebars
 
+
           var album = albums[i];
 
           if (album.genre == scegli){ //confronto con il genere di ogni item
@@ -48,9 +49,13 @@ $( document ).ready(function() {
           };
           console.log(context);
 
+
           var insert = template(context);
+
           $('.cds-container').append(insert); //appende solo gli oggetti selezionati
                                               // ma non rimuove i precedenti
+
+
 
           }
         }
